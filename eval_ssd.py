@@ -85,7 +85,7 @@ class MeanAPEvaluator:
                 continue
             prediction_path = self.eval_path / f"det_test_{class_name}.txt"
             ap = self.compute_average_precision_per_class(
-                self.true_case_stat[class_index],
+                self.true_case_stat.get(class_index, 0),
                 self.all_gb_boxes[class_index],
                 self.all_difficult_cases[class_index],
                 prediction_path,
